@@ -52,7 +52,7 @@ header {
   background: var(--Azul-Dark, #041832);
 }
 
-.conteudo-cabecalho {
+.header-content {
   display: flex;
   justify-content: center;
   gap: 32px;
@@ -78,7 +78,7 @@ header .logo h1 {
   line-height: 67.6px;
 }
 
-.imagem-cabecalho img{
+.img-header img{
   max-width: 500px;
 }
 
@@ -118,13 +118,13 @@ h2, h3 {
   margin-top: 40px;
 }
 
- #pensamento-form {
+ #thought-form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-#pensamento-conteudo, #pensamento-autoria {
+#thought-content, #thought-autoria {
   padding: 16px;
   border-radius: 8px;
   background: var(--Cinza-claro, #EDF0F4);
@@ -132,11 +132,11 @@ h2, h3 {
   overflow-wrap: break-word; 
 }
 
-#pensamento-conteudo {
+#thought-content {
   min-height: 80px;
 }
 
-#pensamento-form label {
+#thought-form label {
   margin-bottom: 16px;
   color: var(--Azul-Dark, #041832);
   font-family: "Poppins", sans-serif;
@@ -146,7 +146,7 @@ h2, h3 {
   line-height: normal;
 }
 
-#pensamento-conteudo::placeholder,  #pensamento-autoria::placeholder{
+#thought-content::placeholder,  #thought-autoria::placeholder{
   color: var(--Cinza-medio, #8F8F8F);
   font-family: "Poppins", sans-serif;
   font-size: 16px;
@@ -155,8 +155,8 @@ h2, h3 {
   line-height: normal;
 }
 
-#pensamento-form textarea,
-#pensamento-form input {
+#thought-form textarea,
+#thought-form input {
   margin-bottom: 24px;
   outline: none;
   border-style: none;
@@ -164,14 +164,14 @@ h2, h3 {
   font-family: "Poppins", sans-serif;
 }
 
-.form-botoes {
+.form-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
   padding-top: 16px;
 } 
 
-#botao-salvar, #botao-cancelar {
+#save-button, #cancel-button {
   padding: 8px 32px;
   border-radius: 32px;
   color: var(--Baby-blue, #DBE4EF);
@@ -182,26 +182,26 @@ h2, h3 {
   line-height: normal;
 }
 
-#botao-salvar {
+#save-button {
   background: var(--Azul-Dark, #041832);
   min-width: 160px;
 }
 
-#botao-cancelar {
+#cancel-button {
   color: var(--Azul-Dark, #041832);
 }
 
-#lista-pensamentos-container {
+#thoughts-list-container {
   width: 100%;
   max-width: 1200px;
   margin: 40px 0;
 }
 
-#lista-pensamentos-container h3 {
+#thoughts-list-container h3 {
   margin: 40px 0;
 }
 
-#lista-pensamentos {
+#thoughts-list {
   list-style: none;
   padding: 0;
   display: flex;
@@ -210,7 +210,7 @@ h2, h3 {
   row-gap: 32px;
 }
 
-.li-pensamento {
+.li-thought {
   position: relative;
   padding: 16px;
   background: var(--Branco, #FFF);
@@ -234,7 +234,7 @@ h2, h3 {
   height: 50px;
 }
 
-.pensamento-conteudo, .pensamento-autoria {
+.thought-content, .thought-autoria {
   margin-left: 20px; 
   color: var(--Cinza, #444);
   font-family: "Roboto Mono";
@@ -246,13 +246,13 @@ h2, h3 {
   hyphens: auto;
 }
 
-.pensamento-conteudo {
+.thought-content {
   margin-top: 96px; 
   font-size: 20px;
   font-weight: 400;
 }
 
-.pensamento-autoria {
+.thought-autoria {
   font-size: 22px;
   font-weight: 600;
 }
@@ -263,7 +263,7 @@ h2, h3 {
   right: 16px;
 }
 
-.botao-editar, .botao-excluir {
+.edit-button, .delete-button {
   background: none;
   border: none;
   cursor: pointer;
@@ -271,7 +271,7 @@ h2, h3 {
   margin-left: 8px;
 }
 
-.botao-editar img, .botao-excluir img {
+.edit-button img, .delete-button img {
   width: 20px;
   height: 20px;
 }
