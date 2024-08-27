@@ -1,6 +1,13 @@
 import api from "./api.js";
 
 const ui = {
+  async fillForm(thoughtId) {
+    const thought = await api.getThoughtByid(thoughtId);
+    document.getElementById("thought-id").value = thought.id;
+    document.getElementById("thought-content").value = thought.content;
+    document.getElementById("thought-autoria").value = thought.autoria;
+  },
+
   async renderThoughts() {
     const thoughtsList = document.getElementById("thoughts-list");
     try {
@@ -30,15 +37,30 @@ const ui = {
     thoughtAutoria.textContent = thought.autoria;
     thoughtAutoria.classList.add("thought-autoria");
 
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit-button");
+    editButton.onclick = () => ui.fillForm(thought.id);
+
+    const editIcon = document.createElement("img");
+    editIcon.src = "assets/imagens/icone-editar.png";
+    editIcon.alt = "Editar";
+    editIcon.classList.add("edit-icon");
+    editButton.appendChild(editIcon);
+
+    const icons = document.createElement("div");
+    icons.classList.add("icons");
+    icons.appendChild(editButton);
+
     li.appendChild(iconAspas);
     li.appendChild(thoughtContent);
     li.appendChild(thoughtAutoria);
+    li.appendChild(icons);
     thoughtsList.appendChild(li);
   },
 
   clearForm() {
     document.getElementById("thought-form").reset();
-  }
+  },
 };
 
 export default ui;

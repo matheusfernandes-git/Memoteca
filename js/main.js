@@ -21,7 +21,11 @@ async function submitForm(event) {
   const autoria = document.getElementById("thought-autoria").value;
 
   try {
-    await api.saveThoughts({ content, autoria });
+    if (id) {
+      await api.editThought({ id, content, autoria });
+    } else {
+      await api.saveThoughts({ content, autoria });
+    }
     ui.renderThoughts();
   } catch (error) {
     alert("Erro ao salvar pensamento");
