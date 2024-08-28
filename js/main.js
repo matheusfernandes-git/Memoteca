@@ -3,7 +3,6 @@ import api from "./api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   ui.renderThoughts();
-
   const thoughtForm = document.getElementById("thought-form");
   const cancelBtn = document.getElementById("cancel-button");
   thoughtForm.addEventListener("submit", submitForm);
@@ -11,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function handleCancel() {
+  document.getElementById("thought-h2").textContent =
+    "Adicione um pensamento novo:";
   ui.clearForm();
 }
 

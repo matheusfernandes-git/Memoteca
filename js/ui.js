@@ -6,13 +6,22 @@ const ui = {
     document.getElementById("thought-id").value = thought.id;
     document.getElementById("thought-content").value = thought.content;
     document.getElementById("thought-autoria").value = thought.autoria;
+    document.getElementById("thought-h2").textContent = "Edite o pensamento";
   },
 
   async renderThoughts() {
     const thoughtsList = document.getElementById("thoughts-list");
+    const emptyList = document.getElementById("empty-list");
+    thoughtsList.innerHTML = "";
+
     try {
       const thoughts = await api.getThoughts();
       thoughts.forEach(ui.addThoughtToList);
+      if (thoughts.length === 0) {
+        emptyList.style.display = "block";
+      } else {
+        emptyList.style.display = "none";
+      }
     } catch (error) {
       alert("Erro ao renderizar pensamentos");
     }
@@ -47,9 +56,27 @@ const ui = {
     editIcon.classList.add("edit-icon");
     editButton.appendChild(editIcon);
 
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.onclick = async () => {
+      try {
+        await api.deleteThought(thought.id);
+        ui.renderThoughts();
+      } catch (error) {
+        alert("Erro ao excluir pensamento");
+      }
+    };
+
+    const deleteIcon = document.createElement("img");
+    deleteIcon.src = "assets/imagens/icone-excluir.png";
+    deleteIcon.alt = "Deletar";
+    deleteIcon.classList.add("delete-icon");
+    deleteButton.appendChild(deleteIcon);
+
     const icons = document.createElement("div");
     icons.classList.add("icons");
     icons.appendChild(editButton);
+    icons.appendChild(deleteButton);
 
     li.appendChild(iconAspas);
     li.appendChild(thoughtContent);

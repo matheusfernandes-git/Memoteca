@@ -28,7 +28,7 @@
     <main class="background-overlay">
       <div class="overlay"></div>
       <div class="overlay overlay-color"></div>
-      <h2>Adicione um pensamento novo:</h2>
+      <h2 id="thought-h2">Adicione um pensamento novo:</h2>
       <section id="form-container">
         <form id="thought-form">
           <label for="thought-content">Pensamento</label>
@@ -53,8 +53,12 @@
         </form>
       </section>
       <span></span>
-      <section id="thoughts-list-container">
+      <section id="thoughts-list-container" >
         <h3>Meu Mural</h3>
+        <div id="empty-list" class="empty-list" >
+          <p>Nada por aqui ainda, que tal compartilhar alguma ideia?</p>
+          <img src="assets/imagens/lista-vazia.png" alt="Lista vazia" />
+        </div>
         <ul id="thoughts-list"></ul>
       </section>
     </main>

@@ -1,7 +1,9 @@
+const URL_BASE = "http://localhost:3000";
+
 const api = {
   async getThoughts() {
     try {
-      const response = await fetch("http://localhost:3000/pensamentos");
+      const response = await fetch(`${URL_BASE}/pensamentos`);
       return await response.json();
     } catch (error) {
       alert("Erro ao buscar pensamentos");
@@ -11,7 +13,7 @@ const api = {
 
   async saveThoughts(thought) {
     try {
-      const response = await fetch("http://localhost:3000/pensamentos", {
+      const response = await fetch(`${URL_BASE}/pensamentos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +29,7 @@ const api = {
 
   async getThoughtByid(id) {
     try {
-      const response = await fetch(`http://localhost:3000/pensamentos/${id}`);
+      const response = await fetch(`${URL_BASE}/pensamentos/${id}`);
       return await response.json();
     } catch (error) {
       alert("Erro ao buscar pensamento");
@@ -38,7 +40,7 @@ const api = {
   async editThought(thought) {
     try {
       const response = await fetch(
-        `http://localhost:3000/pensamentos/${thought.id}`,
+        `${URL_BASE}/pensamentos/${thought.id}`,
         {
           method: "PUT",
           headers: {
@@ -50,6 +52,17 @@ const api = {
       return await response.json();
     } catch (error) {
       alert("Erro ao editar pensamento");
+      throw error;
+    }
+  },
+
+  async deleteThought(id) {
+    try {
+      await fetch(`${URL_BASE}/pensamentos/${id}`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      alert("Erro ao deletar pensamento");
       throw error;
     }
   },
